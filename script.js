@@ -413,7 +413,7 @@ stopGameButton.addEventListener('click', () => {
 // --- PWA: Registrasi Service Worker ---
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js')
+        navigator.serviceWorker.register('/GameZizi/sw.js') // PERUBAHAN DI SINI
             .then(registration => {
                 console.log('Service Worker berhasil didaftarkan dengan scope:', registration.scope);
             })
