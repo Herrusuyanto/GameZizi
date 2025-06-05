@@ -1,41 +1,69 @@
 {
-  "name": "Game Perhitungan Anak ZIZI HEBAT",
-  "short_name": "ZIZI HEBAT",
-  "description": "Game perhitungan matematika edukatif untuk anak-anak bersama ZIZI.",
-  "start_url": "/index.html",
+  "name": "Game Zizi Hebat",
+  "short_name": "Zizi Hebat",
+  "description": "Game perhitungan angka yang seru untuk anak-anak!",
+  "start_url": "/GameZizi/",
   "display": "standalone",
-  "background_color": "#87CEEB",
+  "background_color": "#FFD700",
   "theme_color": "#4CAF50",
+  "orientation": "portrait-primary",
+  "id": "/GameZizi/",
   "icons": [
     {
-      "src": "images/icon-48x48.png",
+      "src": "/GameZizi/images/icon-48x48.png",
       "sizes": "48x48",
       "type": "image/png"
     },
     {
-      "src": "images/icon-72x72.png",
+      "src": "/GameZizi/images/icon-72x72.png",
       "sizes": "72x72",
       "type": "image/png"
     },
     {
-      "src": "images/icon-96x96.png",
+      "src": "/GameZizi/images/icon-96x96.png",
       "sizes": "96x96",
       "type": "image/png"
     },
     {
-      "src": "images/icon-144x144.png",
+      "src": "/GameZizi/images/icon-144x144.png",
       "sizes": "144x144",
       "type": "image/png"
     },
     {
-      "src": "images/icon-192x192.png",
+      "src": "/GameZizi/images/icon-192x192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "images/icon-512x512.png",
+      "src": "/GameZizi/images/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
-  ]
+  ],
+  "screenshots": [
+    {
+      "src": "/GameZizi/images/screenshot-menu.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Layar Menu Utama"
+    },
+    {
+      "src": "/GameZizi/images/screenshot-game.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Layar Permainan"
+    },
+    {
+      "src": "/GameZizi/images/screenshot-result.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Layar Hasil Akhir"
+    }
+  ],
+  "launch_handler": {
+    "client_mode": ["navigate-existing", "focus-existing", "navigate-new"]
+  }
 }
