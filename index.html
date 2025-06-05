@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="manifest.json"> <title>Game Perhitungan Anak - ZIZI HEBAT</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="splash-screen" class="splash-screen">
+        <h1 class="splash-text-1">BERHITUNG YUK!</h1>
+        <p class="splash-text-2">Jadi Anak Pintar & Cerdas</p>
+        <p class="splash-text-3">Bersama ZIZI</p>
+    </div>
+
+    <div class="container hidden">
+        <h1>Yuk Berhitung!</h1>
+        
+        <div id="menu-area" class="screen">
+            <p>Pilih Operasi:</p>
+            <button class="operation-button" data-operation="add">Penjumlahan</button>
+            <button class="operation-button" data-operation="subtract">Pengurangan</button>
+            <button class="operation-button" data-operation="multiply">Perkalian</button>
+            <button class="operation-button" data-operation="divide">Pembagian</button>
+        </div>
+
+        <div id="difficulty-area" class="screen">
+            <p>Pilih Tingkat Kesulitan:</p>
+            <button class="difficulty-button" data-level="satuan">Satuan</button>
+            <button class="difficulty-button" data-level="puluhan">Puluhan</button>
+            <button class="difficulty-button" data-level="ratusan">Ratusan</button>
+            <button class="difficulty-button" data-level="ribuan">Ribuan</button>
+            <button class="difficulty-button" data-level="campuran">Campuran</button>
+            <button class="back-button" data-target="menu-area">Kembali ke Operasi</button>
+        </div>
+
+        <div id="game-level-area" class="screen">
+            <p>Pilih Tingkatan Soal:</p>
+            <button class="question-level-button" data-qlevel="mudah">Mudah</button>
+            <button class="question-level-button" data-qlevel="sulit">Sulit</button>
+            <button class="back-button" data-target="difficulty-area">Kembali ke Kesulitan</button>
+        </div>
+
+        <div id="game-area" class="screen">
+            <div class="score">Skor: <span id="score">0</span></div>
+            <div class="question" id="question"></div>
+            <div class="options" id="options">
+                </div>
+            <p id="feedback" class="feedback-text"></p>
+
+            <div id="continue-stop-options" class="hidden-options">
+                <button id="continue-button">Lanjut</button>
+                <button id="stop-game-button">Berhenti Bermain</button>
+            </div>
+        </div>
+
+        <div id="result-area" class="screen">
+            <h2>Game Selesai!</h2>
+            <p>Skor Akhir: <span id="final-score">0</span></p>
+            <button id="play-again-button">Main Lagi</button>
+            <button class="back-button" data-target="menu-area">Kembali ke Menu Utama</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

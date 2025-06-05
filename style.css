@@ -1,0 +1,254 @@
+/* style.css - Kode CSS Lengkap untuk Game Perhitungan Anak (Fokus Mobile-First) */
+
+/* Reset CSS Dasar */
+body, h1, h2, p, button, div, span {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Memastikan padding dan border dihitung dalam lebar/tinggi elemen */
+}
+
+/* Gaya Umum untuk Body (Latar Belakang dan Penataan Utama) */
+body {
+    font-family: 'Comic Sans MS', 'Comic Neue', cursive, sans-serif; /* Font ramah anak */
+    background-color: #87CEEB; /* Warna biru langit cerah */
+    display: flex; /* Menggunakan flexbox untuk penataan */
+    justify-content: center; /* Pusatkan secara horizontal */
+    align-items: center; /* Pusatkan secara vertikal */
+    min-height: 100vh; /* Tinggi minimal layar penuh */
+    color: #333; /* Warna teks default */
+    overflow: hidden; /* Mencegah scroll jika ada elemen yang keluar batas */
+    padding: 10px; /* Sedikit padding di tepi layar HP */
+}
+
+/* Gaya untuk Splash Screen (Layar Pembuka) */
+#splash-screen {
+    background-color: #FFD700; /* Kuning emas cerah */
+    position: fixed; /* Memastikan splash screen menutupi seluruh layar */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex; /* Menggunakan flexbox untuk penataan konten splash */
+    flex-direction: column; /* Tata letak vertikal */
+    justify-content: center; /* Pusatkan konten secara vertikal */
+    align-items: center; /* Pusatkan konten secara horizontal */
+    text-align: center; /* Pusatkan teks */
+    z-index: 1000; /* Memastikan splash screen di atas elemen lain */
+    opacity: 1; /* Awalnya terlihat penuh */
+    transition: opacity 1s ease-out; /* Animasi fade-out saat disembunyikan */
+}
+
+#splash-screen.hidden {
+    opacity: 0; /* Sembunyikan dengan transisi fade-out */
+    pointer-events: none; /* Mencegah interaksi setelah tersembunyi */
+}
+
+/* Gaya Teks di Splash Screen */
+.splash-text-1 {
+    font-size: 3em; /* Ukuran teks besar untuk mobile */
+    color: #FF6347; /* Merah tomat */
+    margin-bottom: 10px;
+    text-shadow: 3px 3px 0px rgba(0,0,0,0.2); /* Efek bayangan teks */
+}
+
+.splash-text-2 {
+    font-size: 1.5em; /* Ukuran disesuaikan untuk mobile */
+    color: #4682B4; /* Biru baja */
+    margin-bottom: 5px;
+}
+
+.splash-text-3 {
+    font-size: 1.2em; /* Ukuran disesuaikan untuk mobile */
+    color: #2E8B57; /* Hijau laut */
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+/* Gaya untuk Kontainer Utama Game */
+.container {
+    background-color: #FFFFFF; /* Latar putih untuk area game */
+    padding: 25px; /* Padding disesuaikan untuk mobile */
+    border-radius: 15px; /* Sudut membulat */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Bayangan untuk efek kedalaman */
+    text-align: center; /* Pusatkan teks di dalam kontainer */
+    width: 100%; /* Ambil lebar penuh */
+    max-width: 400px; /* Batasi lebar maksimal agar tidak terlalu lebar di tablet/desktop */
+    opacity: 1; /* Awalnya terlihat */
+    transition: opacity 1s ease-in; /* Animasi fade-in saat muncul */
+}
+
+/* Kelas untuk menyembunyikan kontainer game */
+.container.hidden {
+    opacity: 0;
+    pointer-events: none; /* Mencegah interaksi */
+    position: absolute; /* Pindahkan keluar dari aliran dokumen */
+    top: -9999px; /* Jauhkan dari layar */
+    /* Untuk memastikan tidak terlihat sebelum JS menghilangkannya */
+    visibility: hidden; 
+}
+
+/* Gaya untuk Layar-layar Game (menu-area, difficulty-area, dll.) */
+.screen {
+    display: none; /* Default: semua layar tersembunyi */
+    flex-direction: column; /* Tata letak vertikal untuk konten di dalam layar */
+    align-items: center; /* Pusatkan elemen secara horizontal */
+    gap: 15px; /* Jarak antar elemen vertikal */
+}
+
+/* Kelas untuk menampilkan layar yang aktif */
+.screen.active {
+    display: flex; /* Hanya layar dengan class 'active' yang terlihat */
+}
+
+/* Gaya untuk Judul H1 dalam Kontainer Game */
+.container h1 {
+    color: #4CAF50; /* Hijau cerah */
+    margin-bottom: 20px;
+    font-size: 2em; /* Lebih cocok untuk mobile */
+}
+
+/* Gaya untuk Paragraf di layar menu/kesulitan */
+.screen p {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+/* Gaya Umum untuk Tombol-tombol */
+button {
+    background-color: #FF6347; /* Merah tomat */
+    color: white;
+    border: none; /* Tanpa border */
+    padding: 12px 20px; /* Padding lebih ramping untuk mobile */
+    border-radius: 10px; /* Sudut membulat */
+    font-size: 1.1em; /* Ukuran font lebih kecil */
+    cursor: pointer; /* Kursor berubah jadi pointer saat diarahkan */
+    transition: background-color 0.3s ease, transform 0.1s ease; /* Transisi halus saat hover/klik */
+    width: 100%; /* Ambil lebar penuh */
+    max-width: 280px; /* Batas lebar agar tidak terlalu besar di layar lebar */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Bayangan tombol */
+}
+
+button:hover {
+    background-color: #FF4500; /* Merah gelap saat hover */
+    transform: translateY(-2px); /* Efek sedikit terangkat */
+}
+
+button:active {
+    transform: translateY(0); /* Kembali ke posisi semula saat diklik */
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2); /* Bayangan sedikit mengecil */
+}
+
+/* Gaya khusus untuk tombol kembali */
+.back-button {
+    background-color: #9E9E9E; /* Abu-abu */
+    font-size: 0.9em; /* Sedikit lebih kecil dari tombol lain */
+    padding: 10px 15px;
+    margin-top: 10px;
+}
+
+.back-button:hover {
+    background-color: #757575;
+}
+
+/* Gaya untuk Teks Skor */
+.score {
+    font-size: 1.4em;
+    color: #4CAF50; /* Hijau */
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+/* Gaya untuk Teks Soal Matematika */
+.question {
+    font-size: 3em; /* Sangat besar agar mudah dilihat anak di HP */
+    color: #008CBA; /* Biru terang */
+    margin-bottom: 25px;
+    font-weight: bold;
+}
+
+/* Gaya untuk Pilihan Jawaban (Container tombol-tombol pilihan) */
+.options {
+    display: grid; /* Menggunakan grid untuk tata letak tombol jawaban */
+    grid-template-columns: repeat(2, 1fr); /* 2 kolom yang sama lebar */
+    gap: 12px; /* Jarak antar tombol */
+    width: 100%;
+    max-width: 320px; /* Lebar maksimal area pilihan */
+    margin: 0 auto; /* Tengah secara horizontal */
+}
+
+/* Gaya untuk Tombol Pilihan Jawaban */
+.options button {
+    font-size: 1.6em; /* Ukuran font lebih besar untuk jawaban */
+    padding: 18px 0; /* Padding vertikal lebih besar */
+}
+
+/* Gaya untuk Feedback Teks (Benar/Salah) */
+.feedback-text {
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-top: 15px;
+    min-height: 2.2em; /* Memastikan area tidak bergeser saat feedback muncul/hilang */
+}
+
+.feedback-text.correct {
+    color: #4CAF50; /* Hijau untuk benar */
+}
+
+.feedback-text.wrong {
+    color: #F44336; /* Merah untuk salah */
+}
+
+
+/* Gaya untuk Area Hasil Akhir Game */
+#result-area h2 {
+    color: #FF5722; /* Oranye */
+    font-size: 2.2em;
+    margin-bottom: 12px;
+}
+
+#result-area p {
+    font-size: 1.6em;
+    margin-bottom: 20px;
+}
+
+/* Gaya khusus untuk tombol "Main Lagi" */
+#play-again-button {
+    background-color: #4CAF50; /* Hijau */
+}
+
+#play-again-button:hover {
+    background-color: #45a049;
+}
+
+/* Gaya untuk Pilihan Lanjut/Berhenti */
+#continue-stop-options {
+    display: flex;
+    flex-direction: column; /* Tata letak vertikal */
+    align-items: center;
+    gap: 10px; /* Jarak antar tombol */
+    margin-top: 25px; /* Jarak dari feedback text */
+}
+
+/* Kelas untuk menyembunyikan pilihan */
+.hidden-options {
+    display: none !important; /* Penting: menimpa display: flex */
+}
+
+/* Gaya khusus untuk tombol Lanjut */
+#continue-button {
+    background-color: #28a745; /* Warna hijau untuk Lanjut */
+}
+
+#continue-button:hover {
+    background-color: #218838;
+}
+
+/* Gaya khusus untuk tombol Berhenti Bermain */
+#stop-game-button {
+    background-color: #dc3545; /* Warna merah untuk Berhenti */
+}
+
+#stop-game-button:hover {
+    background-color: #c82333;
+}
